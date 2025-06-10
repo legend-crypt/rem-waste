@@ -1,5 +1,4 @@
-import { RiDeleteBin4Fill } from "react-icons/ri";
-import { IoMdCash } from "react-icons/io";
+import { FaCheckCircle } from "react-icons/fa";
 import yarder4 from "../../assets/images/4-yarder-skip.jpg";
 import yarder6 from "../../assets/images/6-yarder-skip.jpg";
 import yarder8 from "../../assets/images/8-yarder-skip.jpg";
@@ -35,7 +34,7 @@ function Listing({ skip, selected, setSelected }: ISkipLisingProps) {
   };
 
   const handleButtonClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent card click when button is clicked
+    e.stopPropagation();
     if (!skip.forbidden) {
       setSelected(skip.id);
       setSchedule(true);
@@ -51,26 +50,14 @@ function Listing({ skip, selected, setSelected }: ISkipLisingProps) {
       } ${skip.forbidden ? "opacity-60 cursor-not-allowed" : ""}`}
       onClick={handleCardClick}
     >
-      {/* Selection Indicator */}
       {isSelected && (
         <div className="absolute top-3 left-3 z-20">
-          <div className="flex items-center justify-center w-6 h-6 bg-indigo-600 rounded-full">
-            <svg
-              className="w-4 h-4 text-white"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
+          <div className="flex items-center justify-center w-6 h-6 bg-white rounded-full border-2 border-indigo-500 shadow-md">
+            <FaCheckCircle className="w-4 h-4 text-indigo-600" />
           </div>
         </div>
       )}
 
-      {/* Status Badge */}
       <div className="absolute top-3 right-3 z-10">
         <span
           className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${status.color}`}
@@ -79,7 +66,6 @@ function Listing({ skip, selected, setSelected }: ISkipLisingProps) {
         </span>
       </div>
 
-      {/* Heavy Waste Badge - Adjust position when selected */}
       {skip.allows_heavy_waste && (
         <div
           className={`absolute top-3 z-10 ${isSelected ? "left-11" : "left-3"}`}
@@ -90,24 +76,16 @@ function Listing({ skip, selected, setSelected }: ISkipLisingProps) {
         </div>
       )}
 
-      {/* Image Section */}
       <div className="relative overflow-hidden">
         <img
           alt={`${skip.size} yard skip`}
           src={skipImage}
-          className={`w-full h-32 object-cover transition-transform duration-300 ${
+          className={`w-full h-56 object-cover transition-transform duration-300 rounded-tr-3xl rounded-bl-3xl ${
             isSelected ? "scale-105" : "group-hover:scale-105"
           }`}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-
-        {/* Selected Overlay */}
-        {isSelected && (
-          <div className="absolute inset-0 bg-indigo-600 bg-opacity-10"></div>
-        )}
       </div>
 
-      {/* Content Section */}
       <div className="p-4">
         <div className="mb-4">
           <h3
@@ -122,7 +100,7 @@ function Listing({ skip, selected, setSelected }: ISkipLisingProps) {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 mb-4">
+        {/* <div className="grid grid-cols-2 gap-3 mb-4">
           <div
             className={`flex items-center p-2 rounded-lg transition-colors duration-300 ${
               isSelected ? "bg-indigo-50" : "bg-gray-50"
@@ -170,7 +148,7 @@ function Listing({ skip, selected, setSelected }: ISkipLisingProps) {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div
           className={`mb-4 p-3 rounded-lg transition-colors duration-300 ${
@@ -184,17 +162,15 @@ function Listing({ skip, selected, setSelected }: ISkipLisingProps) {
             </span>
           </div>
           <div className="flex justify-between items-center text-sm font-semibold">
-            <span className="text-gray-900">Total (inc. VAT)</span>
-            <span
-              className={isSelected ? "text-indigo-600" : "text-indigo-600"}
-            >
+            <p className="text-gray-900">Total (inc. VAT)</p>
+            <p className={isSelected ? "text-indigo-600" : "text-indigo-600"}>
               {formatPrice(totalPrice)}
-            </span>
+            </p>
           </div>
         </div>
 
         <button
-          className={`w-full font-medium py-2 px-4 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+          className={`w-full font-medium py-2 px-4 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 hover:cursor-pointer ${
             skip.forbidden
               ? "bg-gray-300 text-gray-500 cursor-not-allowed"
               : isSelected

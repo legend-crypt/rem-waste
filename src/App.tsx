@@ -1,4 +1,4 @@
-import Skips from "./components/skip/Listings";
+import Skips from "./components/skip/";
 import Stepper from "./components/stepper";
 
 function App() {
