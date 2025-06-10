@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-function useBins() {
-  const [bins, setBins] = useState([]);
+function useSkips() {
+  const [skips, setSkips] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -17,7 +17,7 @@ function useBins() {
         }
         const data = await response.json();
         console.log(data);
-        setBins(data);
+        setSkips(data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -29,10 +29,10 @@ function useBins() {
   }, []);
 
   return {
-    bins,
+    skips,
     loading,
     error,
   };
 }
 
-export default useBins;
+export default useSkips;

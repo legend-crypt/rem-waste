@@ -1,10 +1,12 @@
-import Bins from "./components/bin/Listings";
+import Skips from "./components/skip/Listings";
+import Stepper from "./components/stepper";
 
 function App() {
   return (
-    <div className="bg-[#1c1c1c]">
+    <div className="bg-[#4a4949]">
       <div className="max-w-11/12 ml-auto mr-auto p-4">
-        <Bins />
+        <Stepper />
+        <Skips />
       </div>
     </div>
   );

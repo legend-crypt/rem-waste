@@ -1,5 +1,3 @@
-import React from "react";
-
 function Loader() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[400px] bg-white rounded-xl shadow-lg p-8">
@@ -56,26 +54,6 @@ function Loader() {
         <div className="w-2 h-2 bg-indigo-600 rounded-full animate-bounce animation-delay-200"></div>
         <div className="w-2 h-2 bg-indigo-600 rounded-full animate-bounce animation-delay-400"></div>
       </div>
-
-      <style jsx>{`
-        .animation-delay-200 {
-          animation-delay: 0.2s;
-        }
-        .animation-delay-400 {
-          animation-delay: 0.4s;
-        }
-        @keyframes slide {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
-        }
-        .animate-slide {
-          animation: slide 2s ease-in-out infinite;
-        }
-      `}</style>
     </div>
   );
 }

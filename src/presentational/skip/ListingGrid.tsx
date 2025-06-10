@@ -1,8 +1,8 @@
-import React, { type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 function ListingGrid({ children }: { children: ReactNode }) {
   return (
-    <div className="flex flex-wrap justify-center items-center content-center gap-2">
+    <div className="flex flex-wrap justify-center items-center content-center gap-6">
       {children}
     </div>
   );

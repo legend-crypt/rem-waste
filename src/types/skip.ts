@@ -1,4 +1,4 @@
-export interface IBinProps {
+export interface ISkip {
   id: number;
   allowed_on_road: boolean;
   allows_heavy_waste: boolean;
@@ -13,4 +13,10 @@ export interface IBinProps {
   transport_cost: number | null;
   updated_at: string;
   vat: number;
+}
+
+export interface ISkipLisingProps {
+  skip: ISkip;
+  selected: number;
+  setSelected: (id: number) => void;
 }
